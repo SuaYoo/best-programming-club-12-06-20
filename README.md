@@ -22,3 +22,5 @@ rename cart variable
 ```
 
 (Tip: If you're completing both parts of the assignment, create a minimum of 2 commits, one for each assignment.)
+
+Don't be afraid to commit code that's not working yet. Don't get discouraged if you can't get it to work--focus on reading the existing code and making your best guess at what the code might look like.
