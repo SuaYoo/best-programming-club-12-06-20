@@ -70,7 +70,7 @@
           //   function() { makeSomethingHappen }
           function makeButtonClickable(button) {
             button.addEventListener("click", () => {
-              // console.log: outpus stuff in browser console
+              // console.log: outputs stuff in browser console
               console.log("clicked add to cart");
 
               // Reassign itemsInCartCount variable:
@@ -93,13 +93,30 @@
         Array.from(document.querySelectorAll(".add-to-cart")).forEach(
           (button) => {
             button.addEventListener("click", () => {
-              const product = button.dataset.product;
-              const price = Number(button.dataset.price);
-
-              console.log("clicked add to cart:", product, price);
+              console.log("clicked add to cart");
 
               // Add item to cart array (goes last in list):
-              itemsInCart.push(product);
+              //
+              // The data type of the item in this array is an Object.
+              // An object is indicated by surrounding curly braces (`{}`).
+              //
+              // The text inside of the curly braces are properties of the object,
+              // shown in key-value pairs; the key is the name of the property and 
+              // is to the left of the colon, and the value is right of the colon:
+              //   { key: value }
+              //
+              // This is similar to setting a variable, where the name is to the
+              // left of the equal sign, and the value is to the right.
+              // 
+              // To access a property
+              // You can access the properties of an object using a period (`.`).
+              // For example, to get the value of `product` from the `item` variable:
+              //   let item = { product: 'Apple' }
+              // you would do `item.product`.
+              itemsInCart.push({
+                product: button.dataset.product,
+                price: Number(button.dataset.price)
+              });
 
               console.log("itemsInCart:", itemsInCart);
 
@@ -107,6 +124,14 @@
               const itemsInCartCount = itemsInCart.length;
 
               console.log("itemsInCartCount:", itemsInCartCount);
+
+              let cartTotal = 0;
+
+              console.log("cartTotal:", cartTotal);
+
+              itemsInCart.forEach((item) => {
+                console.log("item in itemsInCart:", item);
+              });
 
               document.getElementById(
                 "cart-count"
