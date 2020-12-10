@@ -4,9 +4,9 @@
 
 Open `index.html` in your default browser by double-clicking the file. Keep your [browser console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console) open so that you can view console logs.
 
-Part 1: Update the cart total by changing the lines inside the `initializeCartWithCount` function.
+Part 1: Update the cart total by changing the lines inside the `initializeCartWithCount` function. (Hint: Review the ["Variables" section in this guide](https://www.sitepoint.com/beginners-guide-javascript-variables-and-datatypes/).)
 
-Part 2 (optional): Once complete, try the same thing using the `initializeCartWithList` function.
+Part 2 (optional): Once complete, try the same thing using the `initializeCartWithList` function. (Hint: Review the ["Objects" section in this guide](https://www.sitepoint.com/beginners-guide-javascript-variables-and-datatypes/).)
 
 ## Getting the assignment
 
