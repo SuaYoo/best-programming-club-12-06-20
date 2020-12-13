@@ -163,17 +163,30 @@
 
               console.log('itemsInCartCount:', itemsInCartCount);
 
-              let cartTotal = 0;
+              // Notice that this `cartTotalOnClick` variable is declared inside
+              // of the `initializeCartWithList` function.
+              // This makes `cartTotalOnClick` a local variable, because it is
+              // local to the function; i.e. it is not accessible outside
+              // of the function (look up "Javascript scope".)
+              let cartTotalOnClick = 0;
 
-              console.log('cartTotal:', cartTotal);
+              console.log('cartTotalOnClick:', cartTotalOnClick);
 
               itemsInCart.forEach((item) => {
                 console.log('item in itemsInCart:', item);
+
+                cartTotalOnClick = cartTotalOnClick += item.price;
+
+                console.log('cartTotalOnClick:', cartTotalOnClick);
               });
 
               document.getElementById(
                 'cart-count'
               ).innerText = itemsInCartCount;
+
+              document.getElementById(
+                'cart-total'
+              ).innerText = cartTotalOnClick.toFixed(2);
             });
           }
         );
@@ -186,8 +199,8 @@
         // If you finish, update price using initializeCartWithList
         //
         // To toggle comments: Place your cursor on the line of code and press CMD + /
-        initializeCartWithCount();
-        // initializeCartWithList();
+        // initializeCartWithCount();
+        initializeCartWithList();
       });
     </script>
   </body>
