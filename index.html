@@ -18,13 +18,23 @@
           <ul>
             <li>
               Apple ($0.40)
-              <button type="button" class="add-to-cart" data-product="Apple" data-price="0.40">
+              <button
+                type="button"
+                class="add-to-cart"
+                data-product="Apple"
+                data-price="0.40"
+              >
                 Add +1 to cart
               </button>
             </li>
             <li>
               Banana ($0.20)
-              <button type="button" class="add-to-cart" data-product="Banana" data-price="0.20">
+              <button
+                type="button"
+                class="add-to-cart"
+                data-product="Banana"
+                data-price="0.20"
+              >
                 Add +1 to cart
               </button>
             </li>
@@ -59,29 +69,57 @@
         //     myBackpack.brand = 'jansport'
         // - Use camel-case when naming your variables: first letter of each word is capitalized
         let itemsInCartCount = 0; // number data type
+        let cartTotal = 0;
 
         // Array is a list of values. Here, we're saying "turn the list of HTML button
         // elements into a list of values we can work with in JavaScript:"
-        Array.from(document.querySelectorAll(".add-to-cart")).forEach(
+        Array.from(document.querySelectorAll('.add-to-cart')).forEach(
           // Named declaration format:
           //  function nameOfFunction(nameOfInputs) { makeSomethingHappen }
           // Note: Both of these are valid ways to write a function:
           //   () => { makeSomethingHappen }
           //   function() { makeSomethingHappen }
           function makeButtonClickable(button) {
-            button.addEventListener("click", () => {
+            button.addEventListener('click', () => {
               // console.log: outputs stuff in browser console
-              console.log("clicked add to cart");
+              console.log('clicked add to cart');
+
+              // Data attribute values will always be a string type.
+              // There are multiple ways to turn a string into a number
+              // type, for example, with a unary plus:
+              //   +button.dataset.price
+              const itemPrice = Number(button.dataset.price);
 
               // Reassign itemsInCartCount variable:
               itemsInCartCount = itemsInCartCount + 1;
+              cartTotal = cartTotal + itemPrice;
 
-              console.log("itemsInCartCount:", itemsInCartCount);
+              console.log('itemsInCartCount:', itemsInCartCount);
+              console.log('cartTotal:', cartTotal);
 
               // Update text of HTML element with the "cart-count":
               document.getElementById(
-                "cart-count"
+                'cart-count'
               ).innerText = itemsInCartCount;
+
+              document.getElementById(
+                'cart-total'
+              ).innerText = cartTotal.toFixed(2);
+
+              // As you start adding up the numbers, you might start
+              // seeing something strange happening with the decimals,
+              // for example, 0.8 + 0.4 = 1.2000000000000002.
+              //
+              // This is due to the loose way Javascript numbers are
+              // stored in memory (look up "floating point precision".)
+              //
+              // You can get around this in a couple ways:
+              // 1. If you need to keep working with numbers,
+              //    multiply and divide by 10. ex: 0.8 + 0.4
+              //    becomes (0.8 * 10 + 0.4 * 10) / 10
+              // 2. If you just want to display the decimal as text
+              //    (i.e. turn it into a string,) use `.toFixed(2)`,
+              //    the 2 being number of decimal places
             });
           }
         );
@@ -90,10 +128,10 @@
       function initializeCartWithList() {
         const itemsInCart = []; // Array data type
 
-        Array.from(document.querySelectorAll(".add-to-cart")).forEach(
+        Array.from(document.querySelectorAll('.add-to-cart')).forEach(
           (button) => {
-            button.addEventListener("click", () => {
-              console.log("clicked add to cart");
+            button.addEventListener('click', () => {
+              console.log('clicked add to cart');
 
               // Add item to cart array (goes last in list):
               //
@@ -101,13 +139,13 @@
               // An object is indicated by surrounding curly braces (`{}`).
               //
               // The text inside of the curly braces are properties of the object,
-              // shown in key-value pairs; the key is the name of the property and 
+              // shown in key-value pairs; the key is the name of the property and
               // is to the left of the colon, and the value is right of the colon:
               //   { key: value }
               //
               // This is similar to setting a variable, where the name is to the
               // left of the equal sign, and the value is to the right.
-              // 
+              //
               // To access a property
               // You can access the properties of an object using a period (`.`).
               // For example, to get the value of `product` from the `item` variable:
@@ -115,34 +153,34 @@
               // you would do `item.product`.
               itemsInCart.push({
                 product: button.dataset.product,
-                price: Number(button.dataset.price)
+                price: Number(button.dataset.price),
               });
 
-              console.log("itemsInCart:", itemsInCart);
+              console.log('itemsInCart:', itemsInCart);
 
               // Get number of items in cart array:
               const itemsInCartCount = itemsInCart.length;
 
-              console.log("itemsInCartCount:", itemsInCartCount);
+              console.log('itemsInCartCount:', itemsInCartCount);
 
               let cartTotal = 0;
 
-              console.log("cartTotal:", cartTotal);
+              console.log('cartTotal:', cartTotal);
 
               itemsInCart.forEach((item) => {
-                console.log("item in itemsInCart:", item);
+                console.log('item in itemsInCart:', item);
               });
 
               document.getElementById(
-                "cart-count"
+                'cart-count'
               ).innerText = itemsInCartCount;
             });
           }
         );
       }
 
-      document.addEventListener("DOMContentLoaded", (event) => {
-        console.log("DOM ready");
+      document.addEventListener('DOMContentLoaded', (event) => {
+        console.log('DOM ready');
 
         // Assignment: Update price using initializeCartWithCount first
         // If you finish, update price using initializeCartWithList
