@@ -102,10 +102,6 @@
                 'cart-count'
               ).innerText = itemsInCartCount;
 
-              document.getElementById(
-                'cart-total'
-              ).innerText = cartTotal.toFixed(2);
-
               // As you start adding up the numbers, you might start
               // seeing something strange happening with the decimals,
               // for example, 0.8 + 0.4 = 1.2000000000000002.
@@ -120,6 +116,9 @@
               // 2. If you just want to display the decimal as text
               //    (i.e. turn it into a string,) use `.toFixed(2)`,
               //    the 2 being number of decimal places
+              document.getElementById(
+                'cart-total'
+              ).innerText = cartTotal.toFixed(2);
             });
           }
         );
@@ -179,7 +178,7 @@
               itemsInCart.forEach((item) => {
                 console.log('item in itemsInCart:', item);
 
-                cartTotalOnClick = cartTotalOnClick += item.price;
+                cartTotalOnClick = cartTotalOnClick + item.price;
 
                 console.log('cartTotalOnClick:', cartTotalOnClick);
               });
