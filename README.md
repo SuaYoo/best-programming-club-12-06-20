@@ -24,3 +24,7 @@ rename cart variable
 (Tip: If you're completing both parts of the assignment, create a minimum of 2 commits, one for each assignment.)
 
 Don't be afraid to commit code that's not working yet. Don't get discouraged if you can't get it to work--focus on reading the existing code and making your best guess at what the code might look like.
+
+## The "answers"
+
+Check out the [completed-assignment](https://github.com/SuaYoo/best-programming-club-2020-12-06/blob/completed-assignment/index.html) branch for possible ways to complete the assignment.
